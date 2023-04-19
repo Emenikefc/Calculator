@@ -10,23 +10,29 @@
 void main()
 {
 	// defining function pointer pointing to an array of function
-	void (*calculator)[] (float a, float b) = {add, subtract, divide, multiply, power};
+	float (*calculator[])(float , float ) = {add, subtract, divide, multiply};
+	float a = 5, b = 15;
 	//creating a character array to match the functions
 	char signs[] = "+-/*";
 	char operand;
 	int i;
-	printf("enter 2 numbers");
-	scanf("%f %f" &a, &b);
-	printf("enter operatio + or - or / or *");
+	//printf("enter numbers: ");
+	//scanf("%f", &a);
+	//scanf(" %f", &b);
+	//a = getchar();
+	//b = getchar();
+	printf("enter operation + or - or / or *:");
 	scanf("%c", &operand);
-	// run through the sign array with for loops
 	for (i = 0; signs[i] != '\0'; i++)
 	{
-		if( operand == sign[i]);
-		//call the function with the same index
-	
+		if( operand == signs[i])
+		{
+			//call the function with the same index
+			printf("%f\n",(*calculator[i])(a,b));
+			return;
+		}
 	}
-
+	printf("invalid operation\n");
 
 
 
